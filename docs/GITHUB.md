@@ -99,4 +99,32 @@ git push
 - `rejected` یا `fetch first`: احتمالاً مخزن آنلاین از قبل فایل دارد. متن خطا و وضعیت مخزن را بررسی کن؛ دستور `push --force` اجرا نکن.
 - `nothing to commit`: تغییر تازه‌ای برای ثبت وجود ندارد. با `git status` وضعیت را ببین؛ اگر commit قبلاً ساخته شده، مرحله بعد می‌تواند push باشد.
 
-مبنای این مراحل، [راهنمای رسمی افزودن پروژه محلی به گیت‌هاب](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github) است.
+## فعال‌سازی دموی آنلاین
+
+تنظیمات انتشار در `.github/workflows/deploy.yml` آماده است. برای اولین انتشار:
+
+1. در مخزن به Settings → Pages برو.
+2. در بخش Build and deployment، مقدار Source را روی GitHub Actions بگذار. لازم نیست workflow تازه‌ای بسازی.
+3. تغییرات آماده‌شده را از پوشه پروژه ارسال کن:
+
+```powershell
+git status
+git add README.md docs vite.config.ts .github/workflows/deploy.yml
+git diff --cached --stat
+git commit -m "Add project showcase and live demo deployment"
+git push
+```
+
+4. تب Actions را باز کن و اجرای `Deploy demo to GitHub Pages` را ببین. وقتی همه مراحل سبز شدند، آدرس زیر را باز کن:
+
+https://reza-akbarzadeh.github.io/modiriat-karha/
+
+اگر قبلاً تغییرات را push کرده‌ای، بعد از انتخاب Source به تب Actions برو، workflow را انتخاب کن و از Run workflow برای اجرای دستی استفاده کن.
+
+بعد از باز شدن دمو، جمله موقت زیر لینک دمو در README را حذف کن. در صفحه اصلی مخزن هم کنار About روی چرخ‌دنده بزن و همین آدرس را در Website بگذار. برای Topics می‌توانی `react`، `typescript`، `tailwindcss`، `task-manager`، `jalali-calendar` و `rtl` را وارد کنی.
+
+توضیح کوتاه پیشنهادی برای About:
+
+> برنامه مدیریت کارهای روزانه با React و TypeScript؛ تقویم شمسی، کارهای تکراری، یادآوری صوتی و گزارش PDF.
+
+مبنای مراحل انتشار، [راهنمای رسمی Vite برای GitHub Pages](https://vite.dev/guide/static-deploy#github-pages) و مبنای اتصال مخزن، [راهنمای رسمی گیت‌هاب](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github) است.

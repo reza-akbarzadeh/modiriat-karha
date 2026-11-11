@@ -1,0 +1,27 @@
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Vazir", "Vazirmatn", system-ui, sans-serif;
+  
+  /* Eye-friendly comfortable medium-contrast light & dark themes */
+  --color-slate-50: #edeef2;   /* Very comfortable off-white background */
+  --color-slate-100: #e2e4eb;  /* Soft grey border / dividers */
+  --color-slate-200: #d1d4df;
+  --color-slate-300: #b5b9c9;
+  --color-slate-400: #9398ac;
+  --color-slate-500: #747990;
+  --color-slate-600: #5c6077;
+  --color-slate-700: #474a5e;
+  --color-slate-800: #303342;  /* Comfortable soft dark gray for borders */
+  --color-slate-900: #21232e;  /* Dim, gentle card background for dark mode */
+  --color-slate-950: #171821;  /* Comfortable dim charcoal page background for dark mode */
+}
+
+@variant dark (.dark &);
+
+/* Set the default font for the whole app */
+body {
+  font-family: "Vazir", "Vazirmatn", system-ui, sans-serif;
+}
